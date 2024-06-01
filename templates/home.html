@@ -3,10 +3,41 @@
 <!-- block content -->
 {% block content %}
 
-<h3>Music Data</h3>
-
 <!-- task data -->
-<h1>Hello from homepage!</h1>
+<h1 class="text-center my-4">All Tasks</h1>
+
+<div class="row">
+  {% for i in data %}
+
+  <div class="col-sm-12 col-md-6 col-lg-4 g-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{i.task_title}}</h5>
+        <p>Task_ID: <b>{{i.task_id}}</b></p>
+        <p class="card-text">Description: {{i.task_description}}</p>
+
+        Categories: {% for cat in i.category.all %}
+        <button type="button" disabled class="btn btn-secondary btn-sm m-1">
+          {{cat.category_name}}
+        </button>
+        {% endfor %} {% if i.is_completed == False %}
+        <div class="mt-4 d-flex gap-3">
+          <a class="btn btn-sm btn-warning" href="#" role="button">Edit task</a>
+          <a class="btn btn-sm btn-danger" href="#" role="button"
+            >Delete task</a
+          >
+        </div>
+
+        {% else %}
+        <p>Task Status: {{i.is_completed}}</p>
+
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
 
 <!-- block content ends -->
 {% endblock content %}

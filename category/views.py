@@ -7,8 +7,8 @@ def add_category(request):
         category_data = forms.CategoryForm(request.POST)
 
         if category_data.is_valid():
-            category_data.save()
-            print(category_data)
+            category_data.save(commit=True)
+            print(category_data.cleaned_data)
             return redirect('homepage')
         
     else:
