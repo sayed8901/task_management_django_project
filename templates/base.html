@@ -34,12 +34,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'add_task' %}">Add Task</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'add_category' %}"
                 >Add Category</a
               >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'add_task' %}">Add Task</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'homepage' %}">Show Tasks</a>
@@ -60,7 +60,7 @@
       </div>
     </nav>
 
-    <div class="my-4">
+    <div class="my-5">
       <!-- block content -->
       {% block content %}
 
